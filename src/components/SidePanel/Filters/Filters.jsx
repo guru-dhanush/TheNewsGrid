@@ -22,8 +22,6 @@ const Filters = () => {
   const [activeTab, setActiveTab] = useState(0);
   const { filters, sources } = useSelector((state) => state.newsFeed);
   const [isModalVisible, setModalVisible] = useState(false);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
   const [filter, setFilter] = useState(filters);
 
   const handleConfirmChange = () => {
@@ -89,12 +87,8 @@ const Filters = () => {
   };
 
   useEffect(() => {
-    const today = new Date();
-    const sevenDaysAgo = new Date(today);
-    sevenDaysAgo.setDate(today.getDate() - 7);
-    setEndDate(formatDate(today));
-    setStartDate(formatDate(sevenDaysAgo));
-  }, []);
+    setFilter(filters)
+  }, [filters]);
 
   const tabsData = [
     {
@@ -124,8 +118,10 @@ const Filters = () => {
       label: "Date",
       content: (
         <DateRangePicker
-          initialStartDate={startDate}
-          initialEndDate={endDate}
+          initialDateRange={{
+            from:filter?.from ||null,
+            to:filter?.to||null
+          }}
           onDateChange={handleDateChange}
           placeholder="Select date range"
           className="my-4"

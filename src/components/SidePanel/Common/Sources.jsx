@@ -3,15 +3,12 @@ import { useDispatch } from "react-redux";
 import DynamicList from "./DynamicList";
 import { Spinner } from "../../UI/Spinner/Spinner";
 import { fetchNewsData } from "@/redux/thunks/fetchNewsData";
+import { NEWS_DEFAULT_SOURCES } from "@/constants/categories";
 
 const Sources = ({ onClick, state, sources }) => {
-  const dispatch = useDispatch();
 
   const { items: NEWS_SOURCES, status } = sources;
 
-  useEffect(() => {
-    dispatch(fetchNewsData({ type: "sources", queryInfo: [] }));
-  }, [dispatch]);
 
   if (status === "loading")
     return (
@@ -21,10 +18,10 @@ const Sources = ({ onClick, state, sources }) => {
     );
   if (status === "error") return <div>Error: {status}</div>;
 
-  const selectedSources = NEWS_SOURCES.filter((topic) =>
+  const selectedSources = [...NEWS_DEFAULT_SOURCES,...NEWS_SOURCES].flat().filter((topic) =>
     state.sources.includes(topic.value)
   );
-  const unselectedSources = NEWS_SOURCES.filter(
+  const unselectedSources = [...NEWS_DEFAULT_SOURCES,...NEWS_SOURCES].filter(
     (topic) => !state.sources.includes(topic.value)
   );
 

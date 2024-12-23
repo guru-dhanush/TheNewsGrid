@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar/Navbar";
 
 const Main = ({ left, right }) => {
   const { theme, toggleTheme } = useTheme();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -15,15 +14,14 @@ const Main = ({ left, right }) => {
     <div className={`app ${theme}`}>
       <div className="flex flex-col h-screen">
         <Navbar theme={theme} toggleTheme={toggleTheme} />
-        <div className="flex justify-center " style={{ overflow: "hidden" }}>
+        <div className="flex justify-center" style={{ overflow: "hidden" }}>
           <aside
-            className={`hidden lg-custom:flex  bg-inherit dark:bg-inherit p-4 justify-end flex flex-col ${
-              isMenuOpen ? "flex" : "hidden"
-            }`}
+            className="hidden lg-custom:flex bg-inherit dark:bg-inherit p-4 justify-end flex-col"
             style={{ height: "600px", width: "350px" }}
           >
             {left}
           </aside>
+          
           <main
             className="flex overflow-scroll scrollbar-none justify-center"
             style={{ width: "800px", height: "90vh" }}
@@ -34,26 +32,28 @@ const Main = ({ left, right }) => {
 
         <div
           data-dial-init
-          className="fixed bottom-6 right-6 group lg-custom:hidden"
+          className="fixed bottom-6 right-6 group hidden max-lg-custom:block"
           style={{ zIndex: 30 }}
         >
-          {isMenuOpen && <div
-            id="speed-dial-menu-dropdown"
-            className={` ${isMenuOpen ? "block" : "hidden"}`}
-          >
-            <aside
-              className={`w-full dark:bg-bg_grid m-4 flex rounded-xl`}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "500px",
-                width: "300px",
-                zIndex: "10",
-              }}
+          {isMenuOpen && (
+            <div
+              id="speed-dial-menu-dropdown"
+              className="block"
             >
-              {left}
-            </aside>
-          </div>}
+              <aside
+                className="w-full dark:bg-bg_grid m-4 flex rounded-xl"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "500px",
+                  width: "300px",
+                  zIndex: "10",
+                }}
+              >
+                {left}
+              </aside>
+            </div>
+          )}
 
           <button
             type="button"

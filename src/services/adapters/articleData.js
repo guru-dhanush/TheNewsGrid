@@ -86,27 +86,15 @@ export const normalizeNycApiArticle = (data) => {
   const articles = Array.isArray(data.response?.docs) ? data.response.docs : [];
   return articles?.map((article) => {
     const {
-      title = article?.headline.main || "",
+      title = article?.headline?.main || "",
       description = article?.abstract || "",
       author = article?.byline?.original || "",
-      image = `https://www.nytimes.com/${article.multimedia[0].url}` || "",
+      image = article.multimedia[0]?.url ? `https://www.nytimes.com/${article.multimedia[0]?.url}` : "",
       url = article?.web_url || "#",
       source = article?.source || "",
       publishedAt = article?.pub_date || "",
       category = article?.section_name || article.subsection_name || "",
     } = article;
-
-    console.log({
-      title,
-      description,
-      author,
-      image,
-      url,
-      source,
-      publishedAt,
-      category,
-    });
-
     return {
       title,
       description,

@@ -21,6 +21,10 @@ const NewsFeedContainer = () => {
       setPreferencesSet(true);
     }
   }, [dispatch, storedValue]);
+  
+  useEffect(() => {
+    dispatch(fetchNewsData({ type: "sources", queryInfo: [] }));
+  }, [dispatch]);
 
   useEffect(() => {
     if (isPreferencesSet) {

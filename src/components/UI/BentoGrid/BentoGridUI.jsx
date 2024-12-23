@@ -47,40 +47,33 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-bg_grid dark:border-dark_border_grid bg-white border border-light_border_grid justify-between flex flex-col space-y-4 overflow-hidden",
-        isFeatured
-          ? "md:col-span-2 relative overflow-hidden hidden md:block"
-          : "",
+        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-bg_grid dark:border-dark_border_grid bg-white border border-light_border_grid h-full",
+        isFeatured ? "md:col-span-2 relative hidden md:block" : "",
         className
       )}
-      style={{ height: "100%" }}
     >
       {header}
       <div
         className={cn(
-          "group-hover/bento:translate-x-2 transition duration-200",
-          isFeatured ? "relative flex flex-col h-full" : ""
+          "group-hover/bento:translate-x-2 transition duration-200 flex flex-col h-full",
+          isFeatured ? "relative" : ""
         )}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          height: "100%",
-        }}
       >
-        {image ? (
-          <img
-            src={image}
-            alt={title}
-            className={
-              isFeatured
-                ? "absolute top-0 left-0 w-full h-full object-cover"
-                : ""
-            }
-          />
-        ) : (
-          <Skeleton />
-        )}
+        <div className={`${isFeatured?" h-full":"h-40"} relative w-full`}>
+          {image ? (
+            <img
+              src={image}
+              alt={title}
+              className={cn(
+                "rounded-lg object-cover w-full h-full",
+                isFeatured ? "inset-0" : ""
+              )}
+            />
+          ) : (
+            <Skeleton className="w-full h-full rounded-lg" />
+          )}
+            
+        </div>
         {isFeatured && (
           <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-between p-4 z-10 hidden lg:flex">
             <div className="font-sans font-bold text-white text-lg truncate-description">
@@ -96,8 +89,8 @@ export const BentoGridItem = ({
             </div>
           </div>
         )}
-        {!isFeatured && (
-          <>
+         {!isFeatured && (
+          <div className="flex flex-col flex-1 min-h-0 justify-between">
             <div
               className={`font-sans font-bold text-neutral-600 dark:text-neutral-200  sm:mt-0 sm:mx-0 [@media(max-width:500px)]:mt-[10px] [@media(max-width:500px)]:mx-[0px] ${
                 description ? "truncate-description" : ""
@@ -124,9 +117,9 @@ export const BentoGridItem = ({
             >
               <Button text={"Read more"} />
             </a>
-          </>
-        )}
+          </div>        )}
       </div>
     </div>
   );
 };
+

@@ -38,6 +38,10 @@ export const SearchResultsContainer = () => {
     fetchData();
   }, [fetchData]);
 
+  useEffect(() => {
+    dispatch(fetchNewsData({ type: "sources", queryInfo: [] }));
+  }, [dispatch]);
+   
   if (status === "loading") {
     return <Spinner text="Loading..." />;
   }

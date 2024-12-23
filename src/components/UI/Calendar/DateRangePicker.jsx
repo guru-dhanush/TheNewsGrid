@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { addDays, format } from "date-fns";
+import React, { useEffect, useState } from "react";
+import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { Button } from "@/components/UI/Button";
 import { Calendar } from "@/components/UI/Calendar/Calendar";
@@ -13,16 +13,16 @@ import { cn } from "@/core/utils/cn";
 
 const DateRangePicker = ({
   className = "",
-  initialDateRange = {
-    from: new Date(),
-    to: addDays(new Date(), 7),
-  },
+  initialDateRange  ,
   buttonSize = "w-[300px]",
   placeholderText = "Pick a date",
   numberOfMonths = 2,
   onDateChange,
 }) => {
-  const [date, setDate] = useState(initialDateRange);
+  const [date, setDate] = useState({
+    from:"",
+    to:"",
+  });
 
   const handleDateChange = (selectedDate) => {    
     setDate(selectedDate);
@@ -30,6 +30,10 @@ const DateRangePicker = ({
       onDateChange(selectedDate);
     }
   };
+
+useEffect(()=>{
+setDate(initialDateRange)
+},[initialDateRange])
 
   return (
     <div className={cn("grid gap-2", className)}>

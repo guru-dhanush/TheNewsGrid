@@ -5,7 +5,7 @@ export default {
   theme: {
   	extend: {
   		screens: {
-  			'lg-custom': '1000px'
+  			'lg-custom': '1200px'
   		},
   		colors: {
   			bg_grid: '#292929',
