@@ -51,7 +51,7 @@ export const SearchResultsContainer = () => {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 m-2">
       <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 m-0">
         Search Results
       </h1>

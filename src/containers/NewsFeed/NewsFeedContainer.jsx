@@ -48,7 +48,7 @@ const NewsFeedContainer = () => {
   }, [articles.items, preferences.authors]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col m-2">
       {headlines?.items?.length ? <TopHeadlines headlines={headlines} /> : null}
       <Discover articles={{ ...articles, items: filteredArticles }} />
     </div>

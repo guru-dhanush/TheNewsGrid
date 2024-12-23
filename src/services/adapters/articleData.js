@@ -2,14 +2,14 @@ export const normalizeNewsApiArticle = (data) => {
   const articles = data?.articles || [];
   return articles.map((article) => {
     const {
-      source: { name: source = "Unknown Source" } = {},
-      author = "Unknown Author",
-      title = "No Title Available",
-      description = "No Description Available",
+      source: { name: source = "" } = {},
+      author = "",
+      title = "",
+      description = "",
       url = "",
       urlToImage: image = "",
       publishedAt = null,
-      content = "No Content Available",
+      content = "",
     } = article;
 
     return {
@@ -30,7 +30,7 @@ export const normalizeGuardianArticle = (data) => {
   const articles = data?.response?.results || [];
   return articles.map((article) => {
     const {
-      webTitle: title = "No title available",
+      webTitle: title = "",
       webUrl: url = "",
       sectionId: category = "General",
       webPublicationDate: publishedAt = null,
@@ -43,8 +43,8 @@ export const normalizeGuardianArticle = (data) => {
     const mainAsset = assets[0] || {};
     const {
       secureFile: image = "",
-      altText: imageAltText = "No description available",
-      source = "Unknown source",
+      altText: imageAltText = "",
+      source,
     } = mainAsset.typeData || {};
 
     return {
@@ -54,7 +54,7 @@ export const normalizeGuardianArticle = (data) => {
       image,
       imageAltText,
       url,
-      source,
+      source: "the gaurdian",
       category,
       publishedAt,
     };
@@ -67,9 +67,9 @@ export const normalizeNewsApiSource = (data) => {
   return sources.map((source) => {
     const {
       value = source.id || "",
-      label = source.name || "Unknown source",
-      description = source.description || "No Description Available",
-      category = source.category || "general",
+      label = source.name || "",
+      description = source.description || "",
+      category = source.category || "",
     } = source;
 
     return {
@@ -86,8 +86,8 @@ export const normalizeNycApiArticle = (data) => {
   const articles = Array.isArray(data.response?.docs) ? data.response.docs : [];
   return articles?.map((article) => {
     const {
-      title = article?.headline.main || "Untitled",
-      description = article?.abstract || "No description available",
+      title = article?.headline.main || "",
+      description = article?.abstract || "",
       author = article?.byline?.original || "",
       image = `https://www.nytimes.com/${article.multimedia[0].url}` || "",
       url = article?.web_url || "#",
