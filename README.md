@@ -110,9 +110,10 @@ This application is a frontend implementation for a news aggregator website, all
 6. **Section for News Without Images**:
    - Create a dedicated section to present articles that lack accompanying images.
 
+---
 
-**Issues I faced during the assignment**
-I came across a number of issues and questions while developing this assignment.
+##  Issues I faced during the assignment
+-I came across a number of issues and questions while developing this assignment.
 
 1. **Limited Data Sources**:
    Below three apis had clear documentation and easy to implement  
