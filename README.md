@@ -8,7 +8,7 @@ This application is a frontend implementation for a news aggregator website, all
 ## Features
 
 ### 1. Article Search and Filtering
-- Users can search for articles by keywords with a 3-second debounce to optimize performance.
+- Users can search for articles by keywords with a 1-second debounce to optimize performance.
 - Filter search results by date range, category, or source using a dynamic filter panel.
 
 ### 2. Personalized News Feed
