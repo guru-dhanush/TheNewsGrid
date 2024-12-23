@@ -54,7 +54,7 @@ export const normalizeGuardianArticle = (data) => {
       image,
       imageAltText,
       url,
-      source: "the gaurdian",
+      source: "the guardian",
       category,
       publishedAt,
     };
