@@ -3,7 +3,7 @@ import useDebounce from "../../../core/hooks/useDebounce";
 
 export const Searchbar = ({ onSearch, initialKeyword }) => {
   const [searchInput, setSearchInput] = useState(initialKeyword || "");
-  const debouncedSearchTerm = useDebounce(searchInput, 500);
+  const debouncedSearchTerm = useDebounce(searchInput, 1000);
 
   useEffect(() => {
     if (initialKeyword) {
