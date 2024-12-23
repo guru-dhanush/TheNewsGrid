@@ -90,17 +90,6 @@ const Personalized = () => {
   
   const tabsData = [
     {
-      label: "Sources",
-      content: (
-        <Sources
-          sources={sources}
-          state={selectedPreferences}
-          onClick={(value) => handlePreferenceChange("sources", value)}
-        />
-      ),
-      resetHandler: () => dispatch(resetPreferences({ type: "sources" })),
-    },
-    {
       label: "Category",
       content: (
         <Categories
@@ -110,6 +99,17 @@ const Personalized = () => {
         />
       ),
       resetHandler: () => dispatch(resetPreferences({ type: "categories" })),
+    },
+    {
+      label: "Sources",
+      content: (
+        <Sources
+          sources={sources}
+          state={selectedPreferences}
+          onClick={(value) => handlePreferenceChange("sources", value)}
+        />
+      ),
+      resetHandler: () => dispatch(resetPreferences({ type: "sources" })),
     },
     {
       label: "Author",

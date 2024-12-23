@@ -37,7 +37,7 @@ const Main = ({ left, right }) => {
           className="fixed bottom-6 right-6 group lg-custom:hidden"
           style={{ zIndex: 30 }}
         >
-          <div
+          {isMenuOpen && <div
             id="speed-dial-menu-dropdown"
             className={` ${isMenuOpen ? "block" : "hidden"}`}
           >
@@ -53,7 +53,7 @@ const Main = ({ left, right }) => {
             >
               {left}
             </aside>
-          </div>
+          </div>}
 
           <button
             type="button"

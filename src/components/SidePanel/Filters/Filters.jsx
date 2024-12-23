@@ -98,6 +98,17 @@ const Filters = () => {
 
   const tabsData = [
     {
+      label: "Category",
+      content: (
+        <Categories
+          categories={NEWS_CATEGORIES}
+          state={filter}
+          onClick={(value) => handleFilterChange("categories", value)}
+        />
+      ),
+      resetHandler: () => dispatch(resetFilters({ type: "categories" })),
+    },
+    {
       label: "Sources",
       content: (
         <Sources
@@ -108,17 +119,6 @@ const Filters = () => {
         />
       ),
       resetHandler: () => dispatch(resetFilters({ type: "sources" })),
-    },
-    {
-      label: "Category",
-      content: (
-        <Categories
-          categories={NEWS_CATEGORIES}
-          state={filter}
-          onClick={(value) => handleFilterChange("categories", value)}
-        />
-      ),
-      resetHandler: () => dispatch(resetFilters({ type: "categories" })),
     },
     {
       label: "Date",

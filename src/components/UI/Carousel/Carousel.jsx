@@ -41,7 +41,7 @@ const Carousel = ({
                 {image.title || `Slide ${index + 1}`}
               </h2>
               <div style={{ margin: "10px" }}>
-                <Button text={"Know more"} />
+                <a href={image?.url} target="_blank"><Button text={"Know more"} /></a>
               </div>
             </div>
           </div>
