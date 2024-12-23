@@ -1,4 +1,4 @@
-# News Aggregator - Case study
+# News Aggregator Website - Case study
 
 ## Overview
 This application is a frontend implementation for a news aggregator website, allowing users to customize and explore news articles from multiple sources in a clean and mobile-responsive interface. The application is built using React.js and utilizes three APIs to fetch news data: The Guardian, The New York Times, and NewsAPI.org.
@@ -48,8 +48,8 @@ This application is a frontend implementation for a news aggregator website, all
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
-   cd news-aggregator
+   git clone https://github.com/guru-dhanush/news-aggregator-website.git
+   cd news-aggregator-website
    ```
 
 2. Install dependencies:
@@ -78,12 +78,12 @@ This application is a frontend implementation for a news aggregator website, all
 
 1. Build the Docker image:
    ```bash
-   docker build -t news-aggregator .
+   docker build -t news-aggregator-website .
    ```
 
 2. Run the Docker container:
    ```bash
-   docker run -p 3000:3000 news-aggregator
+   docker run -p 3000:3000 news-aggregator-website
    ```
 
 3. Open the application in your browser at `http://localhost:3000`.
