@@ -48,7 +48,7 @@ This application is a frontend implementation for a news aggregator website, all
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/dhnuz/news-aggregator-website.git
+   git clone https://github.com/guru-dhanush/news-aggregator-website.git
    cd news-aggregator-website
    ```
 
