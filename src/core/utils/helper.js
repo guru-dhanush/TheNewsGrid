@@ -5,10 +5,11 @@ export const toggleItemInArray = (array, item) =>
     : [...array, item];
       
 
-    export const formatDate = (date) => {
-    const yyyy = date.getFullYear();
-    const mm = String(date.getMonth() + 1).padStart(2, "0");
-    const dd = String(date.getDate()).padStart(2, "0");
+ export const formatDate = (date) => {
+    const dateValue = new Date(date)
+    const yyyy = dateValue?.getFullYear();
+    const mm = String(dateValue?.getMonth() + 1).padStart(2, "0");
+    const dd = String(dateValue?.getDate()).padStart(2, "0");
     return `${yyyy}-${mm}-${dd}`;
 };
   
