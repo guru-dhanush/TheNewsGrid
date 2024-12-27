@@ -14,8 +14,5 @@ export const NEWS_CATEGORIES = [
 ];
 
 export const NEWS_DEFAULT_SOURCES = [
-  { value: "all", label: "All" },
   { value: "nyt", label: "New York Times" },
-  { value: "bbc", label: "BBC News" },
-  { value: "gaurdian", label: "The Gaurdian" },
 ];
