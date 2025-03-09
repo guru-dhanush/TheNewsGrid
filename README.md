@@ -1,4 +1,4 @@
-# News Aggregator Website - Case study
+# The News Grid
 
 ## Overview
 This application is a frontend implementation for a news aggregator website, allowing users to customize and explore news articles from multiple sources in a clean and mobile-responsive interface. The application is built using React.js and utilizes three APIs to fetch news data: The Guardian, The New York Times, and NewsAPI.org.
